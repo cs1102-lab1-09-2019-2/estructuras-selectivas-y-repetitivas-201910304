@@ -33,4 +33,5 @@ int main()
   cin>>n;
   int mayor_de_la_lista=numeros(n);
   cout<<"El número mayor es: " << mayor_de_la_lista<<"\n";
+  return 0;
 }
