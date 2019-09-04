@@ -1,43 +1,53 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <cmath>
+#include<string>
 using namespace std;
-int datos(){int x;
-  cout<<"Ingresa el numero de datos que desees: ";
-  cin>>x;
-  return x;
+typedef float decimal;
+
+vector<int> leerConsola(string girl) {int p; int t; vector<int>datos;
+do{
+cout<<"Escribe los puntos del problema que "<< girl<<"resolvio: " ;
+cin>> p;
+} while (p<=200 || p>=3500);
+
+do{
+cout<<"Tiempo en minutos que demoro "<<girl<<" en resolver el problema: " ;
+cin>> t;
+} while (t<0 || t>180);
+datos.push_back(p);
+datos.push_back(t);
+return datos;
 }
-vector<float> leerConsola(int x){ int x_variable; vector<float>vector;
-  
-  for(int i=1;i<=x;i++){
-   cout<<"x"+to_string(i)<<"= ";
-   cin>>x_variable;
-   vector.push_back(x_variable);
-  }
-   return vector;
-  }
-float suma_cuadrados(vector<float>vector){float suma1=0.0;
-  for(auto i:vector)
-  {
-    i=i*i;
-    suma1=suma1+i;
-  }
-  return suma1;
+
+decimal ecuacion(int p, int t){decimal PF; int parte_entera; decimal parte_decimal;decimal real_num;int size;
+size= to_string(p).size();
+
+parte_entera= 0.3*p;
+parte_decimal= p/(size);
+real_num=(decimal)parte_entera+parte_decimal;
+PF=real_num - (p*t)/250;
+return PF;}
+
+decimal chicas(string girl){ vector<int> x; int p; int t;
+x=leerConsola(girl);
+p=x[0];
+t=x[1];
+return ecuacion(p,t);
 }
-  
-float suma(vector<float>vector){float suma2=0.0;
-  for (auto i:vector)
-    suma2=suma2+i;
-  return suma2;
-}
-float desviacion_estandar(float suma1,float suma2, int dato, vector<float>vector){ float DE; float resta;
-  suma2=suma2/dato;
-  suma1=suma1/dato;
-  suma1=pow(suma1,2);
-  resta=suma2-suma1;
-  DE= pow(resta,0.5);
-  return DE;
+
+int main(){
+  decimal A=chicas("Alessia ");
+  decimal J=chicas("Jasmin ");
+  if(A==J)
+  cout<<"Empate";
+  if(A<J)
+  cout<<"Jasmin";
+  if(A>J)
+  cout<<"Alessia";
+  return 0;
+}                                                                   
+                                                                                  
+                                                                                  
 
 }
 int main() {int dato1; vector<float> vector; float suma1; float suma2;
