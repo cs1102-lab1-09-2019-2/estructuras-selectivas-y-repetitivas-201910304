@@ -34,5 +34,6 @@ int main()
   cout<<"Ingrese el tamaño de la n:";
   cin>>n;
   imprimir(n);
+ return 0;
 }
 
